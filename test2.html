@@ -1,0 +1,58 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <h2>JavaScript Simple Implementation of addEventListener()</h2>
+
+    <a href="#">Read Terms & Condition</a> <br/><br/>
+    <button id="btnAccept">Accept</button> &nbsp;&nbsp;
+    <button id="btnReject">Reject</button>
+
+    <p id="demo"></p>
+
+    <script>
+        document.getElementById("btnAccept").addEventListener("click", function() {
+            //displayDate(this)
+            //displayDate1("Accept")
+            displayDate2(this)
+        });
+
+        document.getElementById("btnReject").addEventListener("click", function() {
+            //displayDate(this)
+            //displayDate1("Reject")
+            displayDate2(this)
+        });
+
+        function displayDate(buttonname) {
+            if (buttonname == "Reject") {
+                document.getElementById("demo").innerHTML = "Rejected on : " + Date();
+                document.getElementById("btnReject").removeEventListener("click", displayDate());
+            } else {
+                document.getElementById("demo").innerHTML = "Accepted on : " + Date();
+                document.getElementById("btnAccept").removeEventListener("click", displayDate());
+            }
+        }
+
+        function displayDate(objSomename) {
+            if (objSomename.id == "btnReject") {
+                document.getElementById("demo").innerHTML = "Rejected on : " + Date();
+                document.getElementById("btnReject").removeEventListener("click", displayDate());
+            } else {
+                document.getElementById("demo").innerHTML = "Accepted on : " + Date();
+                document.getElementById("btnAccept").removeEventListener("click", displayDate());
+            }
+        }
+
+        function displayDate2(objSomename) {
+            document.getElementById("demo").innerHTML = objSomename.innerHTML + " on : " + Date();
+            //document.getElementById(objSomename).removeEventListener("click", displayDate2(this));
+        }
+    </script>
+
+</body>
+
+</html>
